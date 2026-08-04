@@ -1,6 +1,42 @@
 {
     "tasks": [
         {
+            "type": "shell",
+            "label": "make: build tetris",
+            "command": "C:\\msys64\\ucrt64\\bin\\mingw32-make.exe",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "Builds tetris.exe using the project Makefile."
+        },
+        {
+            "type": "shell",
+            "label": "run: tetris",
+            "command": "${workspaceFolder}\\tetris.exe",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "dependsOn": "make: build tetris",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "clear": true
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "detail": "Builds (if needed) then runs tetris.exe."
+        },
+        {
             "type": "cppbuild",
             "label": "C/C++: gcc.exe build active file",
             "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe",
@@ -9,8 +45,7 @@
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe",
-                "-lncurses"
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
             "options": {
                 "cwd": "${fileDirname}"
