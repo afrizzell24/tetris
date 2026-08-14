@@ -3,7 +3,8 @@
 
 #include "shape.h"
 
-class square : public Shape {
+class square : public Shape
+{
 protected:
 public:
     square();

@@ -3,9 +3,11 @@
 
 #include "shape.h"
 
-class Tshape : public Shape {
+class Tshape : public Shape
+{
 protected:
     int rotation;
+
 public:
     Tshape();
     virtual ~Tshape();

@@ -4,9 +4,11 @@
 #define ROWS 21
 #define COLS 12
 
-class Shape {
+class Shape
+{
 protected:
     int shapeY, shapeX, startY, startX, endY, endX;
+
 public:
     Shape();
     virtual ~Shape();

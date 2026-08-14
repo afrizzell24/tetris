@@ -3,9 +3,11 @@
 
 #include "shape.h"
 
-class Ishape : public Shape {
+class Ishape : public Shape
+{
 protected:
     int rotation;
+
 public:
     Ishape();
     virtual ~Ishape();
