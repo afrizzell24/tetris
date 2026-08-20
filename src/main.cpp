@@ -137,6 +137,27 @@ void checkRows()
     refresh();
 }
 
+void setPiece(Shape *&tmp)
+{
+    int selectPiece = rand() % 4;
+    if (selectPiece == 0)
+    {
+        tmp = new square();
+    }
+    else if (selectPiece == 1)
+    {
+        tmp = new Ishape();
+    }
+    else if (selectPiece == 2)
+    {
+        tmp = new Tshape();
+    }
+    else if (selectPiece == 3)
+    {
+        tmp = new Lshape();
+    }
+}
+
 int main(int argc, char *argv[])
 {
     srand(time(NULL));
@@ -156,26 +177,8 @@ int main(int argc, char *argv[])
     initializeBorder();
     initializeGameMap();
 
-    Shape *tmp;
-    int selectPiece;
-
-    selectPiece = rand() % 4;
-    if (selectPiece == 0)
-    {
-        tmp = new square();
-    }
-    else if (selectPiece == 1)
-    {
-        tmp = new Ishape();
-    }
-    else if (selectPiece == 2)
-    {
-        tmp = new Tshape();
-    }
-    else if (selectPiece == 3)
-    {
-        tmp = new Lshape();
-    }
+    Shape *tmp = nullptr;
+    setPiece(tmp);
 
     int userInput = -1;
     int usleepDelay = 10000;
@@ -189,24 +192,7 @@ int main(int argc, char *argv[])
             if (tmp->lowerShape(gameMap))
             {
                 checkRows();
-
-                selectPiece = rand() % 4;
-                if (selectPiece == 0)
-                {
-                    tmp = new square();
-                }
-                else if (selectPiece == 1)
-                {
-                    tmp = new Ishape();
-                }
-                else if (selectPiece == 2)
-                {
-                    tmp = new Tshape();
-                }
-                else if (selectPiece == 3)
-                {
-                    tmp = new Lshape();
-                }
+                setPiece(tmp);
             }
             dropShape = 0;
         }
@@ -228,24 +214,7 @@ int main(int argc, char *argv[])
             if (tmp->lowerShape(gameMap))
             {
                 checkRows();
-
-                selectPiece = rand() % 4;
-                if (selectPiece == 0)
-                {
-                    tmp = new square();
-                }
-                else if (selectPiece == 1)
-                {
-                    tmp = new Ishape();
-                }
-                else if (selectPiece == 2)
-                {
-                    tmp = new Tshape();
-                }
-                else if (selectPiece == 3)
-                {
-                    tmp = new Lshape();
-                }
+                setPiece(tmp);
             }
             dropShape = 0;
         }
